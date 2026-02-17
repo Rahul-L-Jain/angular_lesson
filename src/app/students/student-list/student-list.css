@@ -22,7 +22,7 @@ table {
 }
 
 thead {
-  background: linear-gradient(90deg, #FF41F8 0%, #7702FF 100%);
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
   color: white;
 }
 
@@ -43,10 +43,49 @@ tbody tr {
 }
 
 tbody tr:hover {
-  background-color: #f0f0f0;
+  background-color: #f7fbff;
 }
 
 tbody tr.selected {
-  background-color: #e3f2fd;
+  background-color: #d0e8ff;
+  font-weight: 700;
+}
+
+.student-detail {
+  margin-top: 18px;
+  padding: 12px 16px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.student-detail h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.15rem;
+}
+
+.subjects {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 10px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 6px 12px;
+}
+
+.subjects li {
+  padding: 6px 8px;
+  background: #f9f9fb;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.marks {
+  font-weight: 700;
+  color: #1b4b72;
+}
+
+.totals {
+  margin-top: 8px;
   font-weight: 600;
 }

@@ -6,7 +6,7 @@ import { StudentDetail } from './student-detail/student-detail';
   selector: 'app-students',
   imports: [StudentList, StudentDetail],
   templateUrl: './students.html',
-  styleUrl: './students.css',
+  styleUrls: ['./students.css'],
 })
 export class Students {
 

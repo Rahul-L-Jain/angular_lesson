@@ -1,23 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-interface Subject {
-  name: string;
-  marks: number;
-}
-
-interface Student {
-  id: number;
-  name: string;
-  marks: number;
-  subjects: Subject[];
-}
+import { Student } from '../student.model';
 
 @Component({
   selector: 'app-student-detail',
   imports: [CommonModule],
   templateUrl: './student-detail.html',
-  styleUrl: './student-detail.css',
+  styleUrls: ['./student-detail.css'],
 })
 export class StudentDetail {
   @Input() student: Student | null = null;
@@ -41,5 +30,10 @@ export class StudentDetail {
     }
     const sum = this.student.subjects.reduce((acc, subject) => acc + subject.marks, 0);
     return Math.round(sum / this.student.subjects.length);
+  }
+
+  getTotalMarks(): number {
+    if (!this.student || !this.student.subjects) return 0;
+    return this.student.subjects.reduce((acc, s) => acc + s.marks, 0);
   }
 }

@@ -7,11 +7,11 @@
     </div>
     <div class="detail-row">
       <label>Overall Marks:</label>
-      <span>{{ student.marks }}</span>
+      <span>{{ getTotalMarks() }}</span>
     </div>
     <div class="detail-row">
       <label>Grade:</label>
-      <span [ngClass]="'grade-' + getGrade(student.marks).toLowerCase()">{{ getGrade(student.marks) }}</span>
+      <span [ngClass]="'grade-' + getGrade(getAverageMarks()).toLowerCase()">{{ getGrade(getAverageMarks()) }}</span>
     </div>
     
     <div class="subjects-section">

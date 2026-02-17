@@ -4,14 +4,29 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Marks</th>
+        <th>Total</th>
+        <th>Average</th>
+        <th>Age</th>
+        <th>Gender</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let student of students" (click)="selectStudent(student)" [class.selected]="selectedStudent?.id === student.id">
+      <tr *ngFor="let student of students; trackBy: trackByStudentId" (click)="selectStudent(student)" [class.selected]="selectedStudent?.id === student.id">
         <td>{{ student.name }}</td>
-        <td>{{ student.marks }}</td>
+        <td>{{ getTotalMarks(student) }}</td>
+        <td>{{ getAverageMarks(student) }}</td>
+        <td>{{ student.age }}</td>
+        <td>{{ student.gender }}</td>
       </tr>
     </tbody>
   </table>
 </div>
+  <div *ngIf="selectedStudent" class="student-detail">
+    <h3>Details — {{ selectedStudent.name }}</h3>
+    <p><strong>Age:</strong> {{ selectedStudent.age }} — <strong>Gender:</strong> {{ selectedStudent.gender }}</p>
+    <ul class="subjects">
+      <li *ngFor="let s of selectedStudent.subjects">{{ s.name }}: <span class="marks">{{ s.marks }}</span></li>
+    </ul>
+    <p class="totals"><strong>Total:</strong> {{ getTotalMarks(selectedStudent) }} — <strong>Average:</strong> {{ getAverageMarks(selectedStudent) }}</p>
+  </div>
+
