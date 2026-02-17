@@ -1,0 +1,52 @@
+.students-list {
+  flex: 1;
+  padding: 20px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.students-list h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: linear-gradient(90deg, #FF41F8 0%, #7702FF 100%);
+  color: white;
+}
+
+th {
+  padding: 15px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+tbody tr {
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+tbody tr.selected {
+  background-color: #e3f2fd;
+  font-weight: 600;
+}

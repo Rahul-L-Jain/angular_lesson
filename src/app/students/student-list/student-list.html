@@ -1,0 +1,17 @@
+<div class="students-list">
+  <h2>Students List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Marks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students" (click)="selectStudent(student)" [class.selected]="selectedStudent?.id === student.id">
+        <td>{{ student.name }}</td>
+        <td>{{ student.marks }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

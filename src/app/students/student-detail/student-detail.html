@@ -1,0 +1,44 @@
+<div class="student-detail">
+  <h2>Student Details</h2>
+  <div *ngIf="student" class="detail-card">
+    <div class="detail-row">
+      <label>Name:</label>
+      <span>{{ student.name }}</span>
+    </div>
+    <div class="detail-row">
+      <label>Overall Marks:</label>
+      <span>{{ student.marks }}</span>
+    </div>
+    <div class="detail-row">
+      <label>Grade:</label>
+      <span [ngClass]="'grade-' + getGrade(student.marks).toLowerCase()">{{ getGrade(student.marks) }}</span>
+    </div>
+    
+    <div class="subjects-section">
+      <h3>Subject Wise Marks</h3>
+      <div class="subjects-table">
+        <div class="subject-header">
+          <div class="subject-name">Subject</div>
+          <div class="subject-marks">Marks</div>
+          <div class="subject-grade">Grade</div>
+        </div>
+        <div *ngFor="let subject of student.subjects" class="subject-row">
+          <div class="subject-name">{{ subject.name }}</div>
+          <div class="subject-marks">{{ subject.marks }}</div>
+          <div class="subject-grade">
+            <span [ngClass]="getSubjectGradeClass(subject.marks)">
+              {{ getGrade(subject.marks) }}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="average-section">
+        <strong>Average Marks:</strong>
+        <span>{{ getAverageMarks() }}</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!student" class="no-selection">
+    <p>Select a student from the list to view details</p>
+  </div>
+</div>
